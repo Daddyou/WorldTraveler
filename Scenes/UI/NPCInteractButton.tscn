@@ -1,14 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=2]
 
-[ext_resource path="res://Scripts/NPC/NPCInteract.gd" type="Script" id=1]
-
-[node name="NPCInteract" type="Button"]
+[node name="NPCInteractButton" type="Button"]
 margin_left = 110.0
 margin_top = 85.0
 margin_right = 210.0
 margin_bottom = 115.0
 text = "Empty"
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

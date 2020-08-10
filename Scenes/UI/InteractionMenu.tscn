@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/UI/InteractionMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/InteractSubMenu.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/UI/NPCListMenu.gd" type="Script" id=3]
+
+[node name="InteractionMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainInteractionMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionButton" type="Button" parent="MainInteractionMenu"]
+margin_right = 100.0
+margin_bottom = 20.0
+text = "Action"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractButton" type="Button" parent="MainInteractionMenu"]
+margin_top = 25.0
+margin_right = 100.0
+margin_bottom = 45.0
+text = "Interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractSubMenu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="TalkButton" type="Button" parent="InteractSubMenu"]
+margin_right = 100.0
+margin_bottom = 20.0
+text = "Talk"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiftButton" type="Button" parent="InteractSubMenu"]
+margin_top = 25.0
+margin_right = 100.0
+margin_bottom = 45.0
+text = "Gift"
+
+[node name="ActionButton" type="Button" parent="InteractSubMenu"]
+margin_top = 50.0
+margin_right = 100.0
+margin_bottom = 70.0
+text = "Action"
+
+[node name="LeaveButton" type="Button" parent="InteractSubMenu"]
+margin_top = 75.0
+margin_right = 100.0
+margin_bottom = 95.0
+text = "Leave"
+
+[node name="NPCListMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MainInteractionMenu/ActionButton" to="." method="_on_ActionButton_pressed"]
+[connection signal="pressed" from="MainInteractionMenu/InteractButton" to="." method="_on_InteractButton_pressed"]
+[connection signal="open_interaction_main_menu" from="InteractSubMenu" to="." method="_on_InteractSubMenu_open_interaction_main_menu"]
+[connection signal="pressed" from="InteractSubMenu/TalkButton" to="InteractSubMenu" method="_on_TalkButton_pressed"]
+[connection signal="pressed" from="InteractSubMenu/GiftButton" to="InteractSubMenu" method="_on_GiftButton_pressed"]
+[connection signal="pressed" from="InteractSubMenu/ActionButton" to="InteractSubMenu" method="_on_ActionButton_pressed"]
+[connection signal="pressed" from="InteractSubMenu/LeaveButton" to="InteractSubMenu" method="_on_LeaveButton_pressed"]

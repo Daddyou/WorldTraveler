@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/NextMonthButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Textures/UI/NPCButtons.gd" type="Script" id=2]
-[ext_resource path="res://UI/DialogueSystem/Dialoguebox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/DialogueSystem/Dialoguebox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/InteractionMenu.tscn" type="PackedScene" id=4]
 
 [node name="Map" type="Node"]
 
@@ -13,20 +14,13 @@ current = true
 [node name="Background" type="Sprite" parent="."]
 centered = false
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="InteractionMenu" parent="." instance=ExtResource( 4 )]
+margin_left = 106.0
+margin_top = 75.0
+margin_right = 106.0
+margin_bottom = 75.0
 
-[node name="NextMonthButton" parent="Control" instance=ExtResource( 1 )]
-margin_left = 115.0
-margin_top = 154.9
-margin_right = 205.0
-margin_bottom = 174.9
-
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="."]
 margin_left = 260.0
 margin_top = 6.0
 margin_right = 300.0
@@ -35,6 +29,12 @@ text = "Empty"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NextMonthButton" parent="." instance=ExtResource( 1 )]
+margin_left = 106.0
+margin_top = 155.0
+margin_right = 206.0
+margin_bottom = 175.0
 
 [node name="NPCButtons" type="Control" parent="."]
 margin_right = 40.0
